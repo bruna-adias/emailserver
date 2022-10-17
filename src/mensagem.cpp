@@ -1,4 +1,4 @@
-#include "mensagem.hpp"
+#include "mensagem.h"
 
 /**
  * @brief Construct a new Mensagem:: Mensagem object

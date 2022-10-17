@@ -1,4 +1,4 @@
-#include "registro.hpp"
+#include "registro.h"
 
 /**
  * @brief Construct a new Registro:: Registro object

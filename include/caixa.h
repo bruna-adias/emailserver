@@ -1,6 +1,6 @@
 #ifndef CAIXA_HPP
 #define CAIXA_HPP
-#include "mensagem.hpp"
+#include "mensagem.h"
 
 class Caixa {
     public:

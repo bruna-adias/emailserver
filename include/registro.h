@@ -1,6 +1,6 @@
 #ifndef REGISTRO_HPP
 #define REGISTRO_HPP
-#include "user.hpp"
+#include "user.h"
 
 class Registro{
     public:

@@ -1,6 +1,6 @@
 #ifndef USER_HPP
 #define USER_HPP
-#include "caixa.hpp"
+#include "caixa.h"
 
 class User{
     public:

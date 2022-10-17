@@ -1,55 +1,55 @@
-#include "registro.hpp"
+#include "registro.h"
 #include <string.h>
 
 int main(){
-    Registro interfaceMail;
-    FILE* file = fopen("../input.txt", "rt");
+    Registro Registro;
+    FILE* arquivo = fopen("../input.txt", "rt");
 
-    if(file == NULL){
+    if(arquivo == NULL){
         cout << "Arquivo não encontrado" << endl;
         return -1;
     }
 
-    while(!feof(file)){
-        char command[20];
-        fscanf(file, "%s", command);
+    while(!feof(arquivo)){
+        char comando[20];
+        fscanf(arquivo, "%s", comando);
 
-        if(strcmp(command, "CADASTRA") == 0){
-            int idToCreate;
-            fscanf(file, " %d", &idToCreate);
-            interfaceMail.criaruser(idToCreate);
+        if(strcmp(comando, "CADASTRA") == 0){
+            int IDacriar;
+            fscanf(arquivo, " %d", &IDacriar);
+            Registro.criaruser(IDacriar);
         }
 
-        else if(strcmp(command, "REMOVE") == 0){
-            int idToRemove;
-            fscanf(file, " %d", &idToRemove);
-            interfaceMail.deletaruser(idToRemove);
+        else if(strcmp(comando, "REMOVE") == 0){
+            int IDaremover;
+            fscanf(arquivo, " %d", &IDaremover);
+            Registro.deletaruser(IDaremover);
         }
        
-            else if(strcmp(command, "ENTREGA") == 0){
-                int idToSend;
-                int priority;
+            else if(strcmp(comando, "ENTREGA") == 0){
+                int IDaenviar;
+                int prioridade;
                
-                fscanf(file, " %d %d", &idToSend, &priority);
-                char word[20] = "";
+                fscanf(arquivo, " %d %d", &IDaenviar, &prioridade);
+                char palavra[20] = "";
 
-                string message = "";
-                fscanf(file, " %s", word);
-                while(strcmp(word, "FIM") != 0){
-                    message += word;
-                    fscanf(file, " %s", word);
+                string mensagem = "";
+                fscanf(arquivo, " %s", palavra);
+                while(strcmp(palavra, "FIM") != 0){
+                    mensagem += palavra;
+                    fscanf(arquivo, " %s", palavra);
                     
-                    if(strcmp(word, "FIM") != 0)
-                        message += " ";
+                    if(strcmp(palavra, "FIM") != 0)
+                        mensagem += " ";
                 }
 
-                interfaceMail.enviarmensagem(idToSend, priority, message);
+                Registro.enviarmensagem(IDaenviar, prioridade, mensagem);
             }
 
                 else{
-                    int idToGetEmail;
-                    fscanf(file, " %d", &idToGetEmail);
-                    interfaceMail.lermensagem(idToGetEmail);
+                    int ID;
+                    fscanf(arquivo, " %d", &ID);
+                    Registro.lermensagem(ID);
                 }
    
     }
