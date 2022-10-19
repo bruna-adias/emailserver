@@ -46,7 +46,7 @@ int main(){
                 Registro.enviarmensagem(IDaenviar, prioridade, mensagem);
             }
 
-                else{
+                else if(strcmp(comando, "CONSULTA") == 0){
                     int ID;
                     fscanf(arquivo, " %d", &ID);
                     Registro.lermensagem(ID);

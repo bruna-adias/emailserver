@@ -23,10 +23,10 @@ Registro::~Registro(){
 
 
 /**
- * @brief Cria um usuário e insere na ordem descrescente em relação ID. Se o ID já existir o usuário 
+ * @brief Cria um usuário e insere na ordem descrescente em relação ao ID. Se o ID já existir o usuário 
  * não é inserido e é printado no terminal uma mensagem de erro.
  * 
- * @details Inicialmente cria um usuário depois verifica se existe um usuário na primeira posição.
+ * @details Inicialmente cria um usuário e depois verifica se existe um usuário na primeira posição.
  * Se não existir, ele atribui a primeira posição a um usuário recém criado e, se existir ele verifica
  * primeiro se o ID a ser inserido é maior que o ID da primeira posição, se for ele posiciona o novo 
  * usuário na primeira posição, se não ele percorre a lista até encontrar a posição em que o ID do
@@ -79,17 +79,24 @@ void Registro::criaruser(int id){
  */
 void Registro::deletaruser(int id){
     User* aux = primeiro;
-    while(aux->proximo != NULL){
-        if(aux->proximo->id < id){
-            cout << "ERRO: CONTA " << id << "NAO EXISTE" << endl; 
-            return;
-        }
+    if(aux->id==id){
+        primeiro=aux->proximo;
+        cout << "OK: CONTA " << id <<" REMOVIDA" << endl;
+        return;
+    }
 
+    while(aux->proximo != NULL){
         if(aux->proximo->id==id){
             aux->proximo=aux->proximo->proximo;
             cout << "OK: CONTA " << id <<" REMOVIDA" << endl;
             return;
         }
+
+        if(aux->proximo->id < id){
+            cout << "ERRO: CONTA " << id << " NAO EXISTE" << endl; 
+            return;
+        }
+
         aux = aux->proximo;
 
     }

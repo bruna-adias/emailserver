@@ -4,7 +4,6 @@
  * @brief Construct a new Caixa:: Caixa object
  * 
  */
-
 Caixa::Caixa(){
     primeiro = NULL;
 };
@@ -13,7 +12,6 @@ Caixa::Caixa(){
  * @brief Destroy the Caixa:: Caixa object
  * 
  */
-
 Caixa::~Caixa(){
     while(primeiro != NULL){
         Mensagem* aux = primeiro;
